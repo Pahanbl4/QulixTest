@@ -6,7 +6,20 @@ using System.Threading.Tasks;
 
 namespace DML
 {
-    class Worker
+   public class Worker
     {
+        public int WorkerId { get; set; }
+
+        public string FirstName { get; set; }
+
+        public string LastName { get; set; }
+
+        public string Patronymic { get; set; }
+
+        public DateTime EntryDate { get; set; }
+
+        public string Position { get; set; }
+
+        public int CompanyId { get; set; }
     }
 }

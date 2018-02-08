@@ -1,0 +1,81 @@
+﻿@model BLL.Models.WorkerModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-3 col-sm-10 col-sm-offset-2 col-xs-12">
+        <h4>Add worker</h4>
+        @using (Html.BeginForm("Create", "Worker", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Patronymic, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Patronymic, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Patronymic, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.EntryDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.EntryDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.EntryDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <input checked="checked" name="Position" type="radio" value="Developer" /><span>Developer</span><br />
+                    <input name="Position" type="radio" value="Tester" /><span>Tester</span><br />
+                    <input name="Position" type="radio" value="Business analyst" /><span>Business analyst</span><br />
+                    <input name="Position" type="radio" value="Manager" /><span>Manager</span><br />
+                </div>
+                @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Company, new { @class = "col-md-3 control-label" })
+                <div class="col-md-9">
+                    <select name="CompanyId">
+                        @foreach (var company in ViewBag.Companies)
+                        {
+                            <option value="@company.CompanyId">@company.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    @Html.ActionLink("Cancel", "GetAllWorker", "Task", new { @type = "button", @class = "btn btn-default", @style = "float: right; margin-left: 5px;" })
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

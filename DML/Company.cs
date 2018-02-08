@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace DML
 {
-    class Company
+   public class Company
     {
+        public int CompanyId { get; set; }
+
+        public string Name { get; set; }
+
+        public int CompanySize { get; set; }
+
+        public string OrganizationalLegalForm { get; set; }
     }
 }
